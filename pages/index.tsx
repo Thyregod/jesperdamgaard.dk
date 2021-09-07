@@ -1,6 +1,8 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import styles from '../styles/Home.module.scss'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import React from 'react';
+import { TypeWriter } from '../components/TypeWriter';
+import styles from '../styles/Home.module.scss';
 
 const Home: NextPage = () => {
   return (
@@ -12,14 +14,14 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-       jesperdamgaard.dk
+        <TypeWriter />
       </main>
 
       <footer className={styles.footer}>
         <a href="https://www.linkedin.com/in/jesper-damgaard/">LinkedIn</a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
