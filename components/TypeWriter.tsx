@@ -4,7 +4,7 @@ import styles from './TypeWriter.module.scss';
 interface ITypeWriterProps {
   text: string;
 }
-export function TypeWriter(): JSX.Element {
+export function TypeWriter(props: ITypeWriterProps): JSX.Element {
   const textHideRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const textCursorRef = useRef<HTMLDivElement>(null);
@@ -158,7 +158,7 @@ export function TypeWriter(): JSX.Element {
     <div className={styles.container}>
       <div ref={textHideRef} className={styles.text_hide} />
       <div ref={textRef} className={styles.text}>
-        Jesper Damgaard
+        {props.text}
       </div>
       <div ref={textCursorRef} className={styles.text_cursor} />
     </div>

@@ -1,10 +1,13 @@
-import type { NextPage } from 'next';
+import type { GetStaticPropsResult, NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import { TypeWriter } from '../components/TypeWriter';
 import styles from '../styles/Home.module.scss';
 
-const Home: NextPage = () => {
+interface IHomeProps {
+  typewriterText: string;
+}
+const Home: NextPage<IHomeProps> = (props) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <TypeWriter />
+        <TypeWriter text={props.typewriterText} />
       </main>
 
       <footer className={styles.footer}>
@@ -25,3 +28,13 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps(): Promise<GetStaticPropsResult<IHomeProps>> {
+  const configData = await import(`../content/pages/home.json`);
+
+  return {
+    props: {
+      typewriterText: configData.default.typewriterText,
+    },
+  };
+}
