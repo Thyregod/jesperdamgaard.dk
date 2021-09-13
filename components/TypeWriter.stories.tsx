@@ -12,5 +12,5 @@ const Template: ComponentStory<typeof TypeWriter> = (args) => <TypeWriter {...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-  text: 'Jesper Damgaard',
+  texts: ['Hi', 'I am Jesper Damgaard'],
 };
