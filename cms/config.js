@@ -3,6 +3,7 @@
  * https://jakeprins.com/blog/how-to-implement-netlify-cms-with-next-js
  */
 
+/* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
   cms_manual_init: true,
   backend: {
@@ -24,8 +25,13 @@ export default {
           file: 'content/pages/home.json',
           fields: [
             {
-              label: 'Typewriter text',
-              name: 'typewriterText',
+              label: 'Typewriter texts',
+              name: 'typewriterTexts',
+              widget: 'list',
+            },
+            {
+              label: 'LinkedIn href',
+              name: 'linkedInHref',
               widget: 'string',
             },
           ],

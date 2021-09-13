@@ -5,7 +5,8 @@ import { TypeWriter } from '../components/TypeWriter';
 import styles from '../styles/Home.module.scss';
 
 interface IHomeProps {
-  typewriterText: string;
+  typewriterTexts: Array<string>;
+  linkedInHref: string;
 }
 const Home: NextPage<IHomeProps> = (props) => {
   return (
@@ -17,11 +18,11 @@ const Home: NextPage<IHomeProps> = (props) => {
       </Head>
 
       <main className={styles.main}>
-        <TypeWriter text={props.typewriterText} />
+        <TypeWriter texts={props.typewriterTexts} />
       </main>
 
       <footer className={styles.footer}>
-        <a href="https://www.linkedin.com/in/jesper-damgaard/">LinkedIn</a>
+        <a href={props.linkedInHref}>LinkedIn</a>
       </footer>
     </div>
   );
@@ -33,8 +34,6 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<IHomeProps>
   const configData = await import(`../content/pages/home.json`);
 
   return {
-    props: {
-      typewriterText: configData.default.typewriterText,
-    },
+    props: configData.default,
   };
 }
