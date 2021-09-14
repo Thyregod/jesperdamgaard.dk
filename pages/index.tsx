@@ -1,7 +1,7 @@
 import type { GetStaticPropsResult, NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { TypeWriter } from '../components/TypeWriter';
+import { TypeWriter } from '../components/TypeWriter/TypeWriter';
 import styles from '../styles/Home.module.scss';
 
 interface IHomeProps {

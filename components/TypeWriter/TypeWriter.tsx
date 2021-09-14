@@ -24,7 +24,7 @@ export function TypeWriter(props: ITypeWriterProps): JSX.Element {
     return () => {
       typed.destroy();
     };
-  }, []);
+  }, [props.texts]);
 
   return (
     <div className={styles.typeWriter}>

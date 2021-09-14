@@ -36,6 +36,19 @@ export default {
             },
           ],
         },
+        {
+          label: 'Ønsker',
+          name: 'wishes',
+          file: 'content/pages/oensker.json',
+          fields: [
+            {
+              label: 'Ønske',
+              name: 'wishes',
+              widget: 'list',
+              field: { label: 'Ønske', name: 'wish', widget: 'text' },
+            },
+          ],
+        },
       ],
     },
   ],
