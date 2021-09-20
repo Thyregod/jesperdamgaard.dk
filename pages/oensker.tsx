@@ -2,6 +2,7 @@ import type { GetStaticPropsResult, NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import { IWishesContainerProps, WishesContainer } from '../components/PageContainers/WishesContainer/WishesContainer';
+import { attributes } from '../content/pages/oensker.md';
 
 const Wishes: NextPage<IWishesContainerProps> = (props) => {
   return (
@@ -18,9 +19,7 @@ const Wishes: NextPage<IWishesContainerProps> = (props) => {
 export default Wishes;
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<IWishesContainerProps>> {
-  const configData = await import(`../content/pages/oensker.json`);
-
   return {
-    props: configData.default,
+    props: attributes,
   };
 }

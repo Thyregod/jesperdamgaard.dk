@@ -17,12 +17,11 @@ export default {
     {
       name: 'pages',
       label: 'Pages',
-      extension: 'json',
       files: [
         {
           label: 'Home',
           name: 'home',
-          file: 'content/pages/home.json',
+          file: 'content/pages/home.md',
           fields: [
             {
               label: 'Typewriter texts',
@@ -39,7 +38,7 @@ export default {
         {
           label: 'Ønsker',
           name: 'wishes',
-          file: 'content/pages/oensker.json',
+          file: 'content/pages/oensker.md',
           fields: [
             {
               label: 'Ønske',

@@ -1,8 +1,10 @@
+import matter from 'gray-matter';
 import type { GetStaticPropsResult, NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import { TypeWriter } from '../components/TypeWriter/TypeWriter';
 import styles from '../styles/Home.module.scss';
+import { attributes } from '../content/pages/home.md';
 
 interface IHomeProps {
   typewriterTexts: Array<string>;
@@ -31,9 +33,7 @@ const Home: NextPage<IHomeProps> = (props) => {
 export default Home;
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<IHomeProps>> {
-  const configData = await import(`../content/pages/home.json`);
-
   return {
-    props: configData.default,
+    props: attributes,
   };
 }
