@@ -2,4 +2,5 @@
 wishes:
   - Handsker
   - Strømper
+  - Skægtrimmer
 ---
