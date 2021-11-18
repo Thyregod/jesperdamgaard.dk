@@ -3,10 +3,10 @@ wishes:
   - Ganske Enkelt - af Emma Martiny
   - Blåhals træfugl - af Wildlife Garden
   - Propoptrækker med træskæfte
-  - Kilner Fermenteringssæt
+  - "Fermenteringssæt - af Kilner "
   - Fjällräven rejsepude
   - Partners brætspil
-  - Rejse myggenæt
+  - Rejse myggenet
   - Skægtrimmer
   - Handsker
 ---
