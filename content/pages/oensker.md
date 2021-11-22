@@ -8,6 +8,5 @@ wishes:
   - Partners brætspil
   - Rejse myggenet
   - Egernfodrekasse
-  - Skægtrimmer
-  - Handsker
+  - Læderhandsker
 ---
