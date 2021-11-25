@@ -9,4 +9,5 @@ wishes:
   - Rejse myggenet
   - Egernfodrekasse
   - Læderhandsker
+  - Brillesnor med opdrift
 ---
