@@ -1,13 +1,7 @@
 ---
 wishes:
-  - Blåhals træfugl - af Wildlife Garden
-  - Ganske Enkelt - af Emma Martiny
-  - Propoptrækker med træskæfte
   - "Fermenteringssæt - af Kilner "
-  - Fjällräven rejsepude
-  - Partners brætspil
-  - Rejse myggenet
   - Egernfodrekasse
-  - Læderhandsker
   - Brillesnor med opdrift
+  - Fnuller fjerner
 ---
