@@ -4,4 +4,5 @@ wishes:
   - Brillesnor med opdrift
   - Dunkraft
   - Teltunderlag til 2 personers telt 🏕
+  - Snekæder til Rødhætte 🚗
 ---
