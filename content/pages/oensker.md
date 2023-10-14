@@ -1,5 +1,4 @@
 ---
 wishes:
-  - Teltunderlag til 2 personers telt 🏕
-  - Snekæder til Rødhætte 🚗
+  - Mads Stage krus med dyr 🦆🐰
 ---
