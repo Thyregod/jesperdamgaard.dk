@@ -1,7 +1,9 @@
 ---
 wishes:
-  - |-
+  - >-
     Mads Stage krus med dyr 🦆🐰
-    - Jeg har allerede gråand, troldand, mandarinand og taffeland.
+
+    - Jeg har allerede gråand, troldand, mandarinand, skovskade, ederfugl og taffeland.
   - Vildtkamera 📷
+  - Foldekniv
 ---
