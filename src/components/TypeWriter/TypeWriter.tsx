@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import type React from 'react';
+import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import styles from './TypeWriter.module.scss';
 
 interface ITypeWriterProps {
   texts: Array<string>;
 }
-export function TypeWriter(props: ITypeWriterProps): JSX.Element {
+export function TypeWriter(props: ITypeWriterProps): React.JSX.Element {
   const elRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {

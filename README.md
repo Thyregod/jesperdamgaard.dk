@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal site
 
-## Getting Started
+[TanStack Start](https://tanstack.com/start) on Vite, fully prerendered to static HTML and
+deployed on Netlify. Content is Markdown frontmatter edited through
+[Decap CMS](https://decapcms.org/), which commits straight back to this repo.
 
-First, run the development server:
+Served on Netlify's own `*.netlify.app` subdomain. There is no custom domain — the
+`jesperdamgaard.dk` domain is no longer registered, though the GitHub repo keeps that name.
+
+## Getting started
+
+Requires Node 24 (see `.nvmrc`) and pnpm.
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site runs on http://localhost:3000.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+| Script                  | What it does                                          |
+| ----------------------- | ----------------------------------------------------- |
+| `pnpm dev`              | Dev server with Netlify platform emulation            |
+| `pnpm build`            | Prerender every route to static HTML in `dist/client` |
+| `pnpm start`            | Serve the production build locally                    |
+| `pnpm typecheck`        | `tsc --noEmit`                                        |
+| `pnpm lint`             | Biome lint + format check                             |
+| `pnpm format`           | Biome, writing fixes                                  |
+| `pnpm storybook`        | Storybook on http://localhost:6006                    |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Content
 
-## Learn More
+Pages read their content from `content/pages/*.md`. The frontmatter is parsed at build time
+by the small `page-content` plugin in `vite.config.ts`, which exposes it as the virtual module
+`virtual:page-content`; `src/pageContent.ts` re-exports it with types. Parsing at build time
+keeps the YAML parser out of the browser bundle entirely — importing `gray-matter` from a route
+instead cost 54 kB gzipped per page load and shipped a direct `eval`.
 
-To learn more about Next.js, take a look at the following resources:
+Editing happens at `/admin`, configured in `public/admin/config.yml`. That file and the
+frontmatter keys in `content/pages/*.md` have to agree — if you rename a field in one, rename
+it in the other, or the page will render nothing.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`/admin` is a server route (`src/routes/admin.ts`) returning a standalone HTML document that
+loads a pinned Decap build from a CDN. The CMS stays out of the app bundle, so a CMS upgrade
+can never break the site build. It is a server route rather than a file in `public/` because a
+static `public/admin/index.html` is only reachable if the host resolves `/admin` to
+`/admin/index.html` before falling back to the app — which the router does not do locally, and
+which varies by host.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Netlify builds from `main` and serves the site on its own `*.netlify.app` subdomain — there is
+no custom domain. `netlify.toml` sets the build command and publish directory, and `.nvmrc`
+pins Node; both override anything configured in the Netlify dashboard.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **`typed.js` is pinned to `2.1.0` on purpose.** It is the last MIT release; `3.0.0`
+  relicensed to GPL-3.0, which would attach copyleft obligations to the bundle served to
+  visitors. Do not bump it without deciding that is acceptable.
+- **There is no ESLint.** `typescript-eslint` declares `peerDependencies.typescript` as
+  `<6.1.0` and cannot run on TypeScript 7, which ships without the public compiler API until
+  7.1. Biome covers linting and formatting instead.
