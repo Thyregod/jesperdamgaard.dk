@@ -20,14 +20,3 @@ collections:
           - label: LinkedIn href
             name: linkedInHref
             widget: string
-      - label: Ønsker
-        name: wishes
-        file: content/pages/oensker.md
-        fields:
-          - label: Ønske
-            name: wishes
-            widget: list
-            field:
-              label: Ønske
-              name: wish
-              widget: text
