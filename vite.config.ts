@@ -8,7 +8,6 @@ import { defineConfig, type Plugin } from 'vite';
 
 const CONTENT_FILES = {
   homeContent: 'content/pages/home.md',
-  wishesContent: 'content/pages/oensker.md',
 } as const;
 
 /**
@@ -61,8 +60,6 @@ export default defineConfig({
           tanstackStart({
             prerender: {
               enabled: true,
-              // Both routes are static, so autoStaticPathsDiscovery finds them.
-              // crawlLinks alone would miss /oensker: nothing links to it.
               autoStaticPathsDiscovery: true,
               crawlLinks: true,
               failOnError: true,

@@ -7,6 +7,11 @@ deployed on Netlify. Content is Markdown frontmatter edited through
 Served on Netlify's own `*.netlify.app` subdomain. There is no custom domain — the
 `jesperdamgaard.dk` domain is no longer registered, though the GitHub repo keeps that name.
 
+The wish list that used to live at `/oensker` has moved to the
+[Skovfryd](https://github.com/Thyregod/skovfryd) family portal, which holds one per family
+member. `/oensker` is a 301 to it, set in `netlify.toml`. The seasonal falling-particle
+background went with it — this site was its only other user.
+
 ## Getting started
 
 Requires Node 24 (see `.nvmrc`) and pnpm.
@@ -32,8 +37,9 @@ The site runs on http://localhost:3000.
 
 ## Content
 
-Pages read their content from `content/pages/*.md`. The frontmatter is parsed at build time
-by the small `page-content` plugin in `vite.config.ts`, which exposes it as the virtual module
+The home page reads its content from `content/pages/home.md`. The frontmatter is parsed at
+build time by the small `page-content` plugin in `vite.config.ts`, which exposes it as the
+virtual module
 `virtual:page-content`; `src/pageContent.ts` re-exports it with types. Parsing at build time
 keeps the YAML parser out of the browser bundle entirely — importing `gray-matter` from a route
 instead cost 54 kB gzipped per page load and shipped a direct `eval`.

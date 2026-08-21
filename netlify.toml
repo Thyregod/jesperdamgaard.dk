@@ -5,3 +5,10 @@
 [dev]
   command = "vite dev"
   targetPort = 3000
+
+# The wish list moved to the Skovfryd family portal. Permanent, unlike the /{slug} redirect
+# over there: this page will never come back here.
+[[redirects]]
+  from = "/oensker"
+  to = "https://skovfryd.netlify.app/jesper/oensker"
+  status = 301
